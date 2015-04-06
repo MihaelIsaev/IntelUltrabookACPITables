@@ -56,21 +56,21 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
     External (_SB_.PCI0.B0D4)
     External (_SB_.PCI0.B0D4.MAXT, IntObj)
     External (_SB_.PCI0.DPLY)
-    External (_SB_.PCI0.GFX0.AINT, MethodObj)    // 2 Arguments
-    External (_SB_.PCI0.GFX0.ALSI, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CBLV, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CDCK, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.DD1F)
-    External (_SB_.PCI0.GFX0.GDCK, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.GHDS, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.GLID, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.IUEH, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.IUER, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.STAT, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.TCHE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.AINT, MethodObj)    // 2 Arguments
+    External (_SB_.PCI0.IGPU.ALSI, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CBLV, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CDCK, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CLID, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.DD1F)
+    External (_SB_.PCI0.IGPU.GDCK, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.GHDS, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.GLID, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.GSCI, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.GSSE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.IUEH, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.IUER, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.STAT, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.TCHE, FieldUnitObj)
     External (_SB_.PCI0.I2C0.PS0X, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.I2C0.PS3X, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.I2C1.PS0X, MethodObj)    // 0 Arguments
@@ -10781,21 +10781,21 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             If (LAnd (LEqual (ALSE, 0x02), IGDS))
                             {
                                 Store (ECRD (RefOf (LUXH)), Local0)
-                                Or (ShiftLeft (Local0, 0x08), ECRD (RefOf (LUXL)), ^^^GFX0.ALSI)
+                                Or (ShiftLeft (Local0, 0x08), ECRD (RefOf (LUXL)), ^^^IGPU.ALSI)
                             }
 
                             If (LEqual (ECRD (RefOf (LSTE)), Zero))
                             {
-                                Store (Zero, ^^^GFX0.CLID)
+                                Store (Zero, ^^^IGPU.CLID)
                             }
 
                             If (LEqual (ECRD (RefOf (LSTE)), One))
                             {
-                                Store (0x03, ^^^GFX0.CLID)
+                                Store (0x03, ^^^IGPU.CLID)
                             }
 
                             Store (ECRD (RefOf (LSTE)), LIDS)
-                            Store (DSTS, ^^^GFX0.CDCK)
+                            Store (DSTS, ^^^IGPU.CDCK)
                             Store (Zero, BNUM)
                             Or (BNUM, ShiftRight (And (B1ST, 0x08), 0x03
                                 ), BNUM)
@@ -10923,7 +10923,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
                         If (IGDS)
                         {
-                            ^^^GFX0.GDCK (One)
+                            ^^^IGPU.GDCK (One)
                         }
                     }
 
@@ -10952,7 +10952,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             If (IGDS)
                             {
-                                ^^^GFX0.GDCK (Zero)
+                                ^^^IGPU.GDCK (Zero)
                             }
                         }
                     }
@@ -10971,10 +10971,10 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             And (PB1E, 0xFFFFFFFFFFFFFFEF, PB1E)
                             ^VGBI.UPBT (0x07, Zero)
-                            If (CondRefOf (\_SB.PCI0.GFX0.IUER))
+                            If (CondRefOf (\_SB.PCI0.IGPU.IUER))
                             {
-                                Store (^^^GFX0.IUER, Local0)
-                                And (Local0, 0xFFFFFFFFFFFFFF7F, ^^^GFX0.IUER)
+                                Store (^^^IGPU.IUER, Local0)
+                                And (Local0, 0xFFFFFFFFFFFFFF7F, ^^^IGPU.IUER)
                             }
 
                             ADBG ("Notify 0xCB")
@@ -10984,7 +10984,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             If (IGDS)
                             {
-                                ^^^GFX0.GDCK (Zero)
+                                ^^^IGPU.GDCK (Zero)
                             }
                         }
                     }
@@ -11013,7 +11013,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         P8XH (Zero, 0x51)
                         Store (ECRD (RefOf (LSTE)), LIDS)
-                        ^^^GFX0.GLID (LIDS)
+                        ^^^IGPU.GLID (LIDS)
                         If (LEqual (\_TZ.ETMD, Zero))
                         {
                             If (CondRefOf (\_SB.IETM))
@@ -11194,7 +11194,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 Else
                                 {
                                     ADBG ("IUEH")
-                                    ^^^GFX0.IUEH (Zero)
+                                    ^^^IGPU.IUEH (Zero)
                                 }
                             }
                         }
@@ -11222,7 +11222,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 Else
                                 {
                                     ADBG ("IUEH")
-                                    ^^^GFX0.IUEH (One)
+                                    ^^^IGPU.IUEH (One)
                                 }
                             }
                         }
@@ -11249,7 +11249,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 Else
                                 {
                                     ADBG ("IUEH")
-                                    ^^^GFX0.IUEH (0x02)
+                                    ^^^IGPU.IUEH (0x02)
                                 }
                             }
                         }
@@ -11276,7 +11276,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 Else
                                 {
                                     ADBG ("IUEH")
-                                    ^^^GFX0.IUEH (0x03)
+                                    ^^^IGPU.IUEH (0x03)
                                 }
                             }
                         }
@@ -11305,7 +11305,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 Else
                                 {
                                     ADBG ("IUEH")
-                                    ^^^GFX0.IUEH (0x04)
+                                    ^^^IGPU.IUEH (0x04)
                                 }
                             }
                         }
@@ -11332,7 +11332,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                ^^^GFX0.IUEH (0x06)
+                                ^^^IGPU.IUEH (0x06)
                             }
                         }
 
@@ -11358,7 +11358,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                ^^^GFX0.IUEH (0x07)
+                                ^^^IGPU.IUEH (0x07)
                             }
                         }
 
@@ -11366,7 +11366,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             If (IGDS)
                             {
-                                ^^^GFX0.GHDS (Zero)
+                                ^^^IGPU.GHDS (Zero)
                             }
                         }
 
@@ -11374,7 +11374,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             If (IGDS)
                             {
-                                ^^^GFX0.GHDS (One)
+                                ^^^IGPU.GHDS (One)
                             }
                         }
 
@@ -11395,14 +11395,14 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     Else
                                     {
                                         Store (BRTL, Local0)
-                                        Store (^^^GFX0.CBLV, BRTL)
+                                        Store (^^^IGPU.CBLV, BRTL)
                                         And (Add (BRTL, One), 0xFE, BRTL)
                                         If (LLessEqual (BRTL, 0x5A))
                                         {
                                             Add (BRTL, 0x0A, BRTL)
                                         }
 
-                                        ^^^GFX0.AINT (One, BRTL)
+                                        ^^^IGPU.AINT (One, BRTL)
                                     }
                                 }
                             }
@@ -11421,14 +11421,14 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     Else
                                     {
                                         Store (BRTL, Local0)
-                                        Store (^^^GFX0.CBLV, BRTL)
+                                        Store (^^^IGPU.CBLV, BRTL)
                                         And (Add (BRTL, One), 0xFE, BRTL)
                                         If (LGreaterEqual (BRTL, 0x0A))
                                         {
                                             Subtract (BRTL, 0x0A, BRTL)
                                         }
 
-                                        ^^^GFX0.AINT (One, BRTL)
+                                        ^^^IGPU.AINT (One, BRTL)
                                     }
                                 }
                             }
@@ -11451,14 +11451,14 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     Else
                                     {
                                         Store (BRTL, Local0)
-                                        Store (^^^GFX0.CBLV, BRTL)
+                                        Store (^^^IGPU.CBLV, BRTL)
                                         And (Add (BRTL, One), 0xFE, BRTL)
                                         If (LGreaterEqual (BRTL, 0x0A))
                                         {
                                             Subtract (BRTL, 0x0A, BRTL)
                                         }
 
-                                        ^^^GFX0.AINT (One, BRTL)
+                                        ^^^IGPU.AINT (One, BRTL)
                                     }
                                 }
                             }
@@ -11471,14 +11471,14 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 Else
                                 {
                                     Store (BRTL, Local0)
-                                    Store (^^^GFX0.CBLV, BRTL)
+                                    Store (^^^IGPU.CBLV, BRTL)
                                     And (Add (BRTL, One), 0xFE, BRTL)
                                     If (LLessEqual (BRTL, 0x5A))
                                     {
                                         Add (BRTL, 0x0A, BRTL)
                                     }
 
-                                    ^^^GFX0.AINT (One, BRTL)
+                                    ^^^IGPU.AINT (One, BRTL)
                                 }
                             }
                         }
@@ -11534,7 +11534,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    ^^^GFX0.AINT (0x02, Zero)
+                                    ^^^IGPU.AINT (0x02, Zero)
                                 }
                             }
                         }
@@ -11594,12 +11594,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
                         If (LEqual (Local2, 0x20))
                         {
-                            ^^^GFX0.GDCK (One)
+                            ^^^IGPU.GDCK (One)
                         }
 
                         If (LEqual (Local2, 0x16))
                         {
-                            ^^^GFX0.GDCK (Zero)
+                            ^^^IGPU.GDCK (Zero)
                         }
 
                         If (LEqual (Local2, One)) {}
@@ -11812,7 +11812,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Store (ECRD (RefOf (LUXH)), Local0)
                             Or (ShiftLeft (Local0, 0x08), ECRD (RefOf (LUXL)), Local0)
-                            ^^^GFX0.AINT (Zero, Local0)
+                            ^^^IGPU.AINT (Zero, Local0)
                             Notify (ALSD, 0x80)
                         }
                     }
@@ -11829,12 +11829,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         }
                         Else
                         {
-                            If (CondRefOf (\_SB.PCI0.GFX0.IUER))
+                            If (CondRefOf (\_SB.PCI0.IGPU.IUER))
                             {
-                                Store (^^^GFX0.IUER, Local0)
-                                And (Local0, 0xC0, ^^^GFX0.IUER)
-                                Store (^^^GFX0.IUER, Local0)
-                                Or (Local0, One, ^^^GFX0.IUER)
+                                Store (^^^IGPU.IUER, Local0)
+                                And (Local0, 0xC0, ^^^IGPU.IUER)
+                                Store (^^^IGPU.IUER, Local0)
+                                Or (Local0, One, ^^^IGPU.IUER)
                             }
                         }
                     }
@@ -11850,10 +11850,10 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         }
                         Else
                         {
-                            If (CondRefOf (\_SB.PCI0.GFX0.IUER))
+                            If (CondRefOf (\_SB.PCI0.IGPU.IUER))
                             {
-                                Store (^^^GFX0.IUER, Local0)
-                                And (Local0, 0xC0, ^^^GFX0.IUER)
+                                Store (^^^IGPU.IUER, Local0)
+                                And (Local0, 0xC0, ^^^IGPU.IUER)
                             }
                         }
                     }
@@ -17479,18 +17479,18 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
         If (And (ICNF, 0x10))
         {
-            If (And (\_SB.PCI0.GFX0.TCHE, 0x0100))
+            If (And (\_SB.PCI0.IGPU.TCHE, 0x0100))
             {
                 If (LEqual (\_SB.IAOE.ITMR, One))
                 {
                     If (LAnd (And (\_SB.IAOE.IBT1, One), LOr (And (\_SB.IAOE.WKRS, 0x02
                         ), And (\_SB.IAOE.WKRS, 0x10))))
                     {
-                        Store (Or (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.GFX0.STAT)
+                        Store (Or (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.IGPU.STAT)
                     }
                     Else
                     {
-                        Store (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), \_SB.PCI0.GFX0.STAT)
+                        Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFFFFFFFFFC), \_SB.PCI0.IGPU.STAT)
                     }
                 }
                 Else
@@ -17500,11 +17500,11 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         If (LAnd (And (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.IBT1)), One), LOr (And (
                             \_SB.IAOE.WKRS, 0x02), And (\_SB.IAOE.WKRS, 0x10))))
                         {
-                            Store (Or (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.GFX0.STAT)
+                            Store (Or (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.IGPU.STAT)
                         }
                         Else
                         {
-                            Store (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), \_SB.PCI0.GFX0.STAT)
+                            Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFFFFFFFFFC), \_SB.PCI0.IGPU.STAT)
                         }
                     }
                 }
@@ -17572,7 +17572,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
             If (And (GBSX, 0x40))
             {
-                \_SB.PCI0.GFX0.IUEH (0x06)
+                \_SB.PCI0.IGPU.IUEH (0x06)
                 XOr (PB1E, 0x08, PB1E)
                 If (And (PB1E, 0x08))
                 {
@@ -17592,7 +17592,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
             If (And (GBSX, 0x80))
             {
-                \_SB.PCI0.GFX0.IUEH (0x07)
+                \_SB.PCI0.IGPU.IUEH (0x07)
                 XOr (PB1E, 0x10, PB1E)
                 If (And (PB1E, 0x10))
                 {
@@ -17650,12 +17650,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         If (LEqual (LIDS, Zero))
                         {
-                            Store (0x80000000, \_SB.PCI0.GFX0.CLID)
+                            Store (0x80000000, \_SB.PCI0.IGPU.CLID)
                         }
 
                         If (LEqual (LIDS, One))
                         {
-                            Store (0x80000003, \_SB.PCI0.GFX0.CLID)
+                            Store (0x80000003, \_SB.PCI0.IGPU.CLID)
                         }
                     }
 
@@ -18332,7 +18332,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 0x02, 
                 Package (0x01)
                 {
-                    "\\_SB.PCI0.GFX0"
+                    "\\_SB.PCI0.IGPU"
                 }, 
 
                 Package (0x01)
@@ -18344,7 +18344,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     0xFFFFFFFF
                 }, 
 
@@ -18454,7 +18454,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     One, 
                     Package (0x02)
                     {
@@ -18861,7 +18861,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                         One, 
                                         Package (0x01)
                                         {
-                                            "\\_SB.PCI0.GFX0"
+                                            "\\_SB.PCI0.IGPU"
                                         }
                                     })
                                 }
@@ -19772,7 +19772,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
     {
         If (LEqual (And (DIDX, 0x0F00), 0x0400))
         {
-            Notify (\_SB.PCI0.GFX0.DD1F, Arg0)
+            Notify (\_SB.PCI0.IGPU.DD1F, Arg0)
         }
     }
 
@@ -20074,9 +20074,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
         Method (_L66, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
+            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
             {
-                \_SB.PCI0.GFX0.GSCI ()
+                \_SB.PCI0.IGPU.GSCI ()
             }
         }
 
@@ -20102,9 +20102,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.LSTE)), LIDS)
                 If (IGDS)
                 {
-                    If (\_SB.PCI0.GFX0.GLID (LIDS))
+                    If (\_SB.PCI0.IGPU.GLID (LIDS))
                     {
-                        Or (0x80000000, \_SB.PCI0.GFX0.CLID, \_SB.PCI0.GFX0.CLID)
+                        Or (0x80000000, \_SB.PCI0.IGPU.CLID, \_SB.PCI0.IGPU.CLID)
                     }
                 }
 

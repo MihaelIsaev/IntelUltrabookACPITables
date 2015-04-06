@@ -57,10 +57,10 @@ DefinitionBlock ("SSDT-1.aml", "SSDT", 1, "DptfFf", "DptfFfrd", 0x00001000)
     External (_PR_.TAR2, FieldUnitObj)
     External (_SB_.PCCD.PENB, IntObj)
     External (_SB_.PCI0, DeviceObj)
-    External (_SB_.PCI0.GFX0.DD1F._BCL, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD1F._BCM, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.DD1F._BQC, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD1F._DCS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD1F._BCL, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD1F._BCM, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.DD1F._BQC, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD1F._DCS, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.LPCB.H_EC, DeviceObj)
     External (_SB_.PCI0.LPCB.H_EC.AMBT, FieldUnitObj)
     External (_SB_.PCI0.LPCB.H_EC.B1FC, FieldUnitObj)
@@ -3593,9 +3593,9 @@ DefinitionBlock ("SSDT-1.aml", "SSDT", 1, "DptfFf", "DptfFfrd", 0x00001000)
 
             Method (_BCL, 0, NotSerialized)  // _BCL: Brightness Control Levels
             {
-                If (CondRefOf (\_SB.PCI0.GFX0.DD1F._BCL))
+                If (CondRefOf (\_SB.PCI0.IGPU.DD1F._BCL))
                 {
-                    Return (\_SB.PCI0.GFX0.DD1F._BCL ())
+                    Return (\_SB.PCI0.IGPU.DD1F._BCL ())
                 }
                 Else
                 {
@@ -3608,17 +3608,17 @@ DefinitionBlock ("SSDT-1.aml", "SSDT", 1, "DptfFf", "DptfFfrd", 0x00001000)
 
             Method (_BCM, 1, NotSerialized)  // _BCM: Brightness Control Method
             {
-                If (CondRefOf (\_SB.PCI0.GFX0.DD1F._BCM))
+                If (CondRefOf (\_SB.PCI0.IGPU.DD1F._BCM))
                 {
-                    \_SB.PCI0.GFX0.DD1F._BCM (Arg0)
+                    \_SB.PCI0.IGPU.DD1F._BCM (Arg0)
                 }
             }
 
             Method (_BQC, 0, NotSerialized)  // _BQC: Brightness Query Current
             {
-                If (CondRefOf (\_SB.PCI0.GFX0.DD1F._BQC))
+                If (CondRefOf (\_SB.PCI0.IGPU.DD1F._BQC))
                 {
-                    Return (\_SB.PCI0.GFX0.DD1F._BQC ())
+                    Return (\_SB.PCI0.IGPU.DD1F._BQC ())
                 }
                 Else
                 {
@@ -3628,9 +3628,9 @@ DefinitionBlock ("SSDT-1.aml", "SSDT", 1, "DptfFf", "DptfFfrd", 0x00001000)
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
             {
-                If (CondRefOf (\_SB.PCI0.GFX0.DD1F._DCS))
+                If (CondRefOf (\_SB.PCI0.IGPU.DD1F._DCS))
                 {
-                    Return (\_SB.PCI0.GFX0.DD1F._DCS ())
+                    Return (\_SB.PCI0.IGPU.DD1F._DCS ())
                 }
                 Else
                 {

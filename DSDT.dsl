@@ -18151,6 +18151,11 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 {
                     Store (0x07DD, OSYS)
                 }
+                
+                If (_OSI ("Darwin"))
+                {
+                    Store (0x07DD, OSYS)
+                }
             }
 
             If (LOr (LEqual (BID, BICO), LEqual (BID, BICC)))

@@ -10862,6 +10862,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         P8XH (Zero, 0x30)
                         Store (One, PWRS)
+                        Store (Zero, B1ST)
                         PNOT ()
                     }
 
@@ -10869,6 +10870,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         P8XH (Zero, 0x31)
                         Store (Zero, PWRS)
+                        Store (One, B1ST)
                         PNOT ()
                     }
 

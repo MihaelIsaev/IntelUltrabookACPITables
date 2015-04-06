@@ -10095,22 +10095,35 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         TSLT,   8, 
                         TSSR,   8, 
                         B1CM,   8, 
-                        B1DC,   16, 
-                        B1RC,   16, 
-                        B1FC,   16, 
-                        B1FV,   16, 
-                        B1DI,   16, 
-                        B1CI,   16, 
-                        B2RC,   16, 
-                        B2FC,   16, 
-                        B2FV,   16, 
-                        B2DI,   16, 
-                        B2CI,   16, 
+                        DC00,   8, //B1DC
+                        DC01,   8, //B1DC
+                        RC00,   8, //B1RC
+                        RC01,   8, //B1RC
+                        FC00,   8, //B1FC
+                        FC01,   8, //B1FC
+                        FV00,   8, //B1FV
+                        FV01,   8, //B1FV
+                        DI00,   8, //B1DI
+                        DI01,   8, //B1DI
+                        CI00,   8, //B1CI
+                        CI01,   8, //B1CI
+                        RC02,   8, //B2RC
+                        RC03,   8, //B2RC
+                        FC02,   8, //B2FC
+                        FC03,   8, //B2FC
+                        FV02,   8, //B2FV
+                        FV03,   8, //B2FV
+                        DI02,   8, //B2DI
+                        DI03,   8, //B2DI
+                        CI02,   8, //B2CI
+                        CI03,   8, //B2CI
                         CPAP,   16, 
                         BKAP,   16, 
                         PLAP,   16, 
-                        CFSP,   16, 
-                        CFS2,   16, 
+                        IFN0,   8, 
+                        IFN1,   8, 
+                        IFN2,   8, 
+                        IFN3,   8, 
                         SLPC,   8, 
                         DLED,   1, 
                         PB10,   1, 
@@ -10174,7 +10187,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         SPT2,   1, 
                         Offset (0xC9), 
                         Offset (0xD3), 
-                        B1DV,   16, 
+                        DV00,   8, //B1DV
+                        DV01,   8, //B1DV
                         Offset (0xD7), 
                         B1ML,   8, 
                         B1MH,   8, 
@@ -10538,18 +10552,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 "LION", 
                                 "Getac"
                             })
-                            If (LAnd (LAnd (ECRD (RefOf (B1DV)), ECRD (RefOf (B1FC))), ECRD (
-                                RefOf (B1DC))))
+                            If (LAnd (LAnd (B1B2(DV00,DV01), B1B2(FC00,FC01)), B1B2(DC00,DC01)))
                             {
-                                Store (Divide (Multiply (ECRD (RefOf (B1DC)), ECRD (RefOf (B1DV))), 
-                                    0x03E8, ), Index (BPKG, One))
-                                Store (Divide (Multiply (ECRD (RefOf (B1FC)), ECRD (RefOf (B1DV))), 
-                                    0x03E8, ), Index (BPKG, 0x02))
-                                Store (ECRD (RefOf (B1DV)), Index (BPKG, 0x04))
-                                Store (Divide (Multiply (ECRD (RefOf (B1FC)), ECRD (RefOf (B1DV))), 
-                                    0x2710, ), Index (BPKG, 0x05))
-                                Store (Divide (Multiply (ECRD (RefOf (B1FC)), ECRD (RefOf (B1DV))), 
-                                    0x61A8, ), Index (BPKG, 0x06))
+                                Store (Divide (Multiply (B1B2(DC00,DC01), B1B2(DV00,DV01)), 0x03E8, ), Index (BPKG, One))
+                                Store (Divide (Multiply (B1B2(FC00,FC01), B1B2(DV00,DV01)), 0x03E8, ), Index (BPKG, 0x02))
+                                Store (B1B2(DV00,DV01), Index (BPKG, 0x04))
+                                Store (Divide (Multiply (B1B2(FC00,FC01), B1B2(DV00,DV01)), 0x2710, ), Index (BPKG, 0x05))
+                                Store (Divide (Multiply (B1B2(FC00,FC01), B1B2(DV00,DV01)), 0x61A8, ), Index (BPKG, 0x06))
                                 Store (0x0100, Index (BPKG, 0x07))
                                 Store (0x40, Index (BPKG, 0x08))
                             }
@@ -10582,18 +10591,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 "LION", 
                                 "Getac"
                             })
-                            If (LAnd (LAnd (ECRD (RefOf (B1DV)), ECRD (RefOf (B1FC))), ECRD (
-                                RefOf (B1DC))))
+                            If (LAnd (LAnd (B1B2(DV00,DV01), B1B2(FC00,FC01)), B1B2(DC00,DC01)))
                             {
-                                Store (Divide (Multiply (ECRD (RefOf (B1DC)), ECRD (RefOf (B1DV))), 
-                                    0x03E8, ), Index (BPKG, 0x02))
-                                Store (Divide (Multiply (ECRD (RefOf (B1FC)), ECRD (RefOf (B1DV))), 
-                                    0x03E8, ), Index (BPKG, 0x03))
-                                Store (ECRD (RefOf (B1DV)), Index (BPKG, 0x05))
-                                Store (Divide (Multiply (ECRD (RefOf (B1FC)), ECRD (RefOf (B1DV))), 
-                                    0x2710, ), Index (BPKG, 0x06))
-                                Store (Divide (Multiply (ECRD (RefOf (B1FC)), ECRD (RefOf (B1DV))), 
-                                    0x61A8, ), Index (BPKG, 0x07))
+                                Store (Divide (Multiply (B1B2(DC00,DC01), B1B2(DV00,DV01)), 0x03E8, ), Index (BPKG, 0x02))
+                                Store (Divide (Multiply (B1B2(FC00,FC01), B1B2(DV00,DV01)), 0x03E8, ), Index (BPKG, 0x03))
+                                Store (B1B2(DV00,DV01), Index (BPKG, 0x05))
+                                Store (Divide (Multiply (B1B2(FC00,FC01), B1B2(DV00,DV01)), 0x2710, ), Index (BPKG, 0x06))
+                                Store (Divide (Multiply (B1B2(FC00,FC01), B1B2(DV00,DV01)), 0x61A8, ), Index (BPKG, 0x07))
                                 Store (0x0100, Index (BPKG, 0x08))
                                 Store (0x40, Index (BPKG, 0x09))
                                 Store (0x0320, Index (BPKG, 0x0A))
@@ -10612,37 +10616,33 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 0xFFFFFFFF, 
                                 0xFFFFFFFF
                             })
-                            Store (And (ECRD (RefOf (B1ST)), 0x07), Index (PKG1, Zero
-                                ))
-                            If (And (ECRD (RefOf (B1ST)), One))
+                            Store (And (B1ST, 0x07), Index (PKG1, Zero))
+                            If (And (B1ST, One))
                             {
-                                Store (Multiply (ECRD (RefOf (B1DI)), ECRD (RefOf (B1FV))), Local0)
+                                Store (Multiply (B1B2(DI00,DI01), B1B2(FV00,FV01)), Local0)
                                 Store (Divide (Local0, 0x03E8, ), Local0)
                                 Store (Local0, Index (PKG1, One))
                             }
                             Else
                             {
-                                Store (Multiply (ECRD (RefOf (B1CI)), ECRD (RefOf (B1FV))), Local0)
+                                Store (Multiply (B1B2(CI00,CI01), B1B2(FV00,FV01)), Local0)
                                 Store (Divide (Local0, 0x03E8, ), Local0)
                                 Store (Local0, Index (PKG1, One))
                             }
 
-                            Store (Divide (Multiply (ECRD (RefOf (B1RC)), ECRD (RefOf (B1DV))), 
-                                0x03E8, ), Index (PKG1, 0x02))
-                            Store (ECRD (RefOf (B1FV)), Index (PKG1, 0x03))
+                            Store (Divide (Multiply (B1B2(RC00,RC01), B1B2(DV00,DV01)), 0x03E8, ), Index (PKG1, 0x02))
+                            Store (B1B2(FV00,FV01), Index (PKG1, 0x03))
                             Return (PKG1)
                         }
 
                         Method (_BTP, 1, NotSerialized)  // _BTP: Battery Trip Point
                         {
-                            If (LAnd (LNotEqual (ECRD (RefOf (B1FC)), Zero), LNotEqual (
-                                ECRD (RefOf (B1FV)), Zero)))
+                            If (LAnd (LNotEqual (B1B2(FC00,FC01), Zero), LNotEqual (B1B2(FV00,FV01), Zero)))
                             {
-                                Store (Divide (Multiply (Arg0, 0x64), Divide (Multiply (ECRD (RefOf (
-                                    B1FC)), ECRD (RefOf (B1FV))), 0x03E8, ), ), Local0)
+                                Store (Divide (Multiply (Arg0, 0x64), Divide (Multiply (B1B2(FC00,FC01), B1B2(FV00,FV01)), 0x03E8, ), ), Local0)
                                 Add (Local0, One, Local0)
-                                ECWT (Local0, RefOf (BTP1))
-                                ECMD (0x34)
+                                Store (Local0, BTP1)
+                                Store (0x34, CMDR)
                             }
 
                             Return (Zero)
@@ -10713,20 +10713,14 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 "Real", 
                                 "Intel SR 2"
                             })
-                            If (LAnd (LAnd (ECRD (RefOf (B1DV)), ECRD (RefOf (B2FC))), ECRD (
-                                RefOf (B1DC))))
+                            If (LAnd (LAnd (B1B2(DV00,DV01), B1B2(FC02,FC03)), B1B2(DC00,DC01)))
                             {
-                                Store (Divide (Multiply (ECRD (RefOf (B1DC)), ECRD (RefOf (B1DV))), 
-                                    0x03E8, ), Index (BPK2, One))
-                                Store (Divide (Multiply (ECRD (RefOf (B2FC)), ECRD (RefOf (B1DV))), 
-                                    0x03E8, ), Index (BPK2, 0x02))
-                                Store (B1DV, Index (BPK2, 0x04))
-                                Store (Divide (Multiply (ECRD (RefOf (B2FC)), ECRD (RefOf (B1DV))), 
-                                    0x2710, ), Index (BPK2, 0x05))
-                                Store (Divide (Multiply (ECRD (RefOf (B2FC)), ECRD (RefOf (B1DV))), 
-                                    0x61A8, ), Index (BPK2, 0x06))
-                                Store (Divide (Multiply (ECRD (RefOf (B1DC)), ECRD (RefOf (B1DV))), 
-                                    0x000186A0, ), Index (BPK2, 0x07))
+                                Store (Divide (Multiply (B1B2(DC00,DC01), B1B2(DV00,DV01)), 0x03E8, ), Index (BPK2, One))
+                                Store (Divide (Multiply (B1B2(FC02,FC03), B1B2(DV00,DV01)), 0x03E8, ), Index (BPK2, 0x02))
+                                Store (B1B2(DV00,DV01), Index (BPK2, 0x04))
+                                Store (Divide (Multiply (B1B2(FC02,FC03), B1B2(DV00,DV01)), 0x2710, ), Index (BPK2, 0x05))
+                                Store (Divide (Multiply (B1B2(FC02,FC03), B1B2(DV00,DV01)), 0x61A8, ), Index (BPK2, 0x06))
+                                Store (Divide (Multiply (B1B2(DC00,DC01), B1B2(DV00,DV01)), 0x000186A0, ), Index (BPK2, 0x07))
                             }
 
                             Return (BPK2)
@@ -10741,24 +10735,23 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 0xFFFFFFFF, 
                                 0xFFFFFFFF
                             })
-                            Store (And (ECRD (RefOf (B2ST)), 0x07), Index (PKG2, Zero
+                            Store (And (B2ST, 0x07), Index (PKG2, Zero
                                 ))
-                            If (And (ECRD (RefOf (B2ST)), One))
+                            If (And (B2ST, One))
                             {
-                                Store (Multiply (ECRD (RefOf (B2DI)), ECRD (RefOf (B2FV))), Local0)
+                                Store (Multiply (B1B2(DI02,DI03), B1B2(FV02,FV03)), Local0)
                                 Store (Divide (Local0, 0x03E8, ), Local0)
                                 Store (Local0, Index (PKG2, One))
                             }
                             Else
                             {
-                                Store (Multiply (ECRD (RefOf (B2CI)), ECRD (RefOf (B2FV))), Local0)
+                                Store (Multiply (B1B2(CI02,CI03), B1B2(FV02,FV03)), Local0)
                                 Store (Divide (Local0, 0x03E8, ), Local0)
                                 Store (Local0, Index (PKG2, One))
                             }
 
-                            Store (Divide (Multiply (ECRD (RefOf (B2RC)), ECRD (RefOf (B2FV))), 
-                                0x03E8, ), Index (PKG2, 0x02))
-                            Store (ECRD (RefOf (B2FV)), Index (PKG2, 0x03))
+                            Store (Divide (Multiply (B1B2(RC02,RC03), B1B2(FV02,FV03)), 0x03E8, ), Index (PKG2, 0x02))
+                            Store (B1B2(FV02,FV03), Index (PKG2, 0x03))
                             Return (PKG2)
                         }
 
@@ -10804,9 +10797,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store (ECRD (RefOf (LSTE)), LIDS)
                             Store (DSTS, ^^^GFX0.CDCK)
                             Store (Zero, BNUM)
-                            Or (BNUM, ShiftRight (And (ECRD (RefOf (B1ST)), 0x08), 0x03
+                            Or (BNUM, ShiftRight (And (B1ST, 0x08), 0x03
                                 ), BNUM)
-                            Or (BNUM, ShiftRight (And (ECRD (RefOf (B2ST)), 0x08), 0x02
+                            Or (BNUM, ShiftRight (And (B2ST, 0x08), 0x02
                                 ), BNUM)
                             Store (PWRS, Local0)
                             If (LEqual (BNUM, Zero))
@@ -31406,6 +31399,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 }
             }
         }
+    }
+
+    Method (B1B2, 2, NotSerialized)
+    {
+        ShiftLeft (Arg1, 0x08, Local0)
+        Or (Arg0, Local0, Local0)
+        Return (Local0)
     }
 }
 

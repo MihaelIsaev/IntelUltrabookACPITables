@@ -11546,32 +11546,32 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
                         If (LEqual (Local2, 0x43))
                         {
-                            If (LGreaterEqual (ECRD (RefOf (KBDB)), 0x0A))
+                            If (LGreaterEqual (KBDB, 0x0A))
                             {
-                                Subtract (ECRD (RefOf (KBDB)), 0x0A, Local1)
-                                ECWT (Local1, RefOf (KBDB))
+                                Subtract (KBDB, 0x0A, Local1)
+                                Store (Local1, KBDB)
                             }
                             Else
                             {
-                                ECWT (Zero, RefOf (KBDB))
+                                Store (Zero, KBDB)
                             }
 
-                            ECMD (0x1B)
+                            Store (0x1B, CMDR)
                         }
 
                         If (LEqual (Local2, 0x44))
                         {
-                            If (LLessEqual (ECRD (RefOf (KBDB)), 0x5A))
+                            If (LLessEqual (KBDB, 0x5A))
                             {
-                                Add (ECRD (RefOf (KBDB)), 0x0A, Local1)
-                                ECWT (Local1, RefOf (KBDB))
+                                Add (KBDB, 0x0A, Local1)
+                                Store (Local1, KBDB)
                             }
                             Else
                             {
-                                ECWT (0x64, RefOf (KBDB))
+                                Store (0x64, KBDB)
                             }
 
-                            ECMD (0x1B)
+                            Store (0x1B, CMDR)
                         }
 
                         If (LEqual (Local2, 0x58))
@@ -12114,6 +12114,18 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                             }
                         }
+                    }
+                    Method (IFNL, 1, Serialized)
+                    {
+                        Store (0x02, PPSL)
+                        Store (Zero, PPSH)
+                        Store (Arg0, PENV)
+                        Store (0x64, PSTP)
+                        Store (0x1A, CMDR)                        
+                        Store (Arg0, Index (\_TZ.FAN1._FST, One))
+                        Notify (\_TZ.FAN1, 0x80)
+                        Sleep (0x10)
+                        Store (Zero, PENV)
                     }
                 }
 
@@ -19358,6 +19370,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             {
                 FN01
             })
+            Name (_FST, Package (0x03)  // _FST: Fan Status
+            {
+                Zero, 
+                Zero, 
+                0xFFFFFFFF
+            })
         }
 
         PowerResource (FN02, 0x00, 0x0000)
@@ -19538,6 +19556,65 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.PLMX)), Local0)
                     Add (0x0AAC, Multiply (Local0, 0x0A), Local0)
                     Store (Local0, PTMP)
+                    If (LGreaterEqual (Local0, 0xCD1)) // >55
+                    {
+                        //Turn on fans
+                        If (LGreaterEqual (Local0, 0xD35)) // >65
+                        {
+                            If (LGreaterEqual (Local0, 0xD99)) // >75
+                            {
+                                If (LGreaterEqual (Local0, 0xDCB)) // >80
+                                {
+                                    If (LGreaterEqual (Local0, 0xDFD)) // >85
+                                    {
+                                        If (LGreaterEqual (Local0, 0xE11)) // >87
+                                        {
+                                            If (LGreaterEqual (Local0, 0xE25)) // >89
+                                            {
+                                                If (LGreaterEqual (Local0, 0xE4D)) // >93
+                                                {
+                                                    \_SB.PCI0.LPCB.H_EC.IFNL(0x5F)
+                                                }
+                                                Else
+                                                {
+                                                    \_SB.PCI0.LPCB.H_EC.IFNL(0x50)
+                                                }
+                                            }
+                                            Else
+                                            {
+                                                \_SB.PCI0.LPCB.H_EC.IFNL(0x46)
+                                            }
+                                        }
+                                        Else
+                                        {
+                                            \_SB.PCI0.LPCB.H_EC.IFNL(0x46)
+                                        }
+                                    }
+                                    Else
+                                    {
+                                        \_SB.PCI0.LPCB.H_EC.IFNL(0x32)
+                                    }
+                                }
+                                Else
+                                {
+                                    \_SB.PCI0.LPCB.H_EC.IFNL(0x28)
+                                }
+                            }
+                            Else
+                            {
+                                \_SB.PCI0.LPCB.H_EC.IFNL(0x28)
+                            }
+                        }
+                        Else
+                        {
+                            \_SB.PCI0.LPCB.H_EC.IFNL(Zero)
+                        }
+                    }
+                    Else
+                    {
+                        //Turn off fans
+                        \_SB.PCI0.LPCB.H_EC.IFNL(Zero)
+                    }
                     Return (Local0)
                 }
 

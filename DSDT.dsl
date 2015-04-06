@@ -23451,6 +23451,23 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             {
                 Return (GPRW (0x6D, 0x04))
             }
+
+            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            {
+                Store (Package (0x04)
+                    {
+                        "layout-id", 
+                        Buffer (0x04)
+                        {
+                             0x03, 0x00, 0x00, 0x00
+                        }, 
+
+                        "PinConfigurations", 
+                        Buffer (Zero) {}
+                    }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
+            }
         }
 
         Scope (\_SB.PCI0)

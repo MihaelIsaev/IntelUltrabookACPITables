@@ -17807,6 +17807,15 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
     Method (PNOT, 0, Serialized)
     {
+        If (LEqual (ECON, One))
+        {
+            Store (\_SB.PCI0.LPCB.H_EC.B1CC, B1SC)
+            Store (\_SB.PCI0.LPCB.H_EC.B1ST, B1SS)
+            Store (\_SB.PCI0.LPCB.H_EC.B2CC, B2SC)
+            Store (\_SB.PCI0.LPCB.H_EC.B2ST, B2SS)
+            Notify (\_SB.PCI0.LPCB.H_EC.BAT1, 0x81)
+        }
+        
         If (CondRefOf (\_SB.PCCD.PENB))
         {
             Store (0x82, Local0)
@@ -17894,31 +17903,6 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
         {
             Notify (\_PR.CPU0, Local0)
             Notify (\_PR.CPU0, 0x81)
-        }
-
-        If (LEqual (ECON, One))
-        {
-            Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.B1CC)), B1SC)
-            Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.B1ST)), B1SS)
-            Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.B2CC)), B2SC)
-            Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.B2ST)), B2SS)
-            If (LGreaterEqual (OSYS, 0x07D6))
-            {
-                Notify (\_SB.PCI0.LPCB.H_EC.BAT0, 0x81)
-                Notify (\_SB.PCI0.LPCB.H_EC.BAT1, 0x81)
-                Notify (\_SB.PCI0.LPCB.H_EC.BAT2, 0x81)
-            }
-            Else
-            {
-                Notify (\_SB.PCI0.LPCB.H_EC.BAT0, 0x80)
-                Notify (\_SB.PCI0.LPCB.H_EC.BAT1, 0x80)
-                Notify (\_SB.PCI0.LPCB.H_EC.BAT2, 0x80)
-            }
-        }
-
-        If (LEqual (DPTF, One))
-        {
-            Notify (\_SB.IETM, 0x86)
         }
     }
 

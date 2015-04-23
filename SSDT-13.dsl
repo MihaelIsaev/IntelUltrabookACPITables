@@ -3285,7 +3285,7 @@ DefinitionBlock ("SSDT-13.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
                 Return (Package()
                 {
-                    "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x26, 0x0a },
+                    "AAPL,ig-platform-id", Buffer() { 0x0a, 0x00, 0x26, 0x0a },
                     "hda-gfx", Buffer() { "onboard-1" },
                 })
             }

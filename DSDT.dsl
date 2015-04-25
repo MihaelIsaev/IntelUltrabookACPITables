@@ -19540,65 +19540,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Store (\_SB.PCI0.LPCB.H_EC.ECRD (RefOf (\_SB.PCI0.LPCB.H_EC.PLMX)), Local0)
                     Add (0x0AAC, Multiply (Local0, 0x0A), Local0)
                     Store (Local0, PTMP)
-                    If (LGreaterEqual (Local0, 0xCD1)) // >55
-                    {
-                        //Turn on fans
-                        If (LGreaterEqual (Local0, 0xD35)) // >65
-                        {
-                            If (LGreaterEqual (Local0, 0xD99)) // >75
-                            {
-                                If (LGreaterEqual (Local0, 0xDCB)) // >80
-                                {
-                                    If (LGreaterEqual (Local0, 0xDFD)) // >85
-                                    {
-                                        If (LGreaterEqual (Local0, 0xE11)) // >87
-                                        {
-                                            If (LGreaterEqual (Local0, 0xE25)) // >89
-                                            {
-                                                If (LGreaterEqual (Local0, 0xE4D)) // >93
-                                                {
-                                                    \_SB.PCI0.LPCB.H_EC.IFNL(0x5F)
-                                                }
-                                                Else
-                                                {
-                                                    \_SB.PCI0.LPCB.H_EC.IFNL(0x50)
-                                                }
-                                            }
-                                            Else
-                                            {
-                                                \_SB.PCI0.LPCB.H_EC.IFNL(0x46)
-                                            }
-                                        }
-                                        Else
-                                        {
-                                            \_SB.PCI0.LPCB.H_EC.IFNL(0x46)
-                                        }
-                                    }
-                                    Else
-                                    {
-                                        \_SB.PCI0.LPCB.H_EC.IFNL(0x32)
-                                    }
-                                }
-                                Else
-                                {
-                                    \_SB.PCI0.LPCB.H_EC.IFNL(0x28)
-                                }
-                            }
-                            Else
-                            {
-                                \_SB.PCI0.LPCB.H_EC.IFNL(0x28)
-                            }
-                        }
-                        Else
-                        {
-                            \_SB.PCI0.LPCB.H_EC.IFNL(Zero)
-                        }
-                    }
-                    Else
-                    {
-                        //Turn off fans
-                        \_SB.PCI0.LPCB.H_EC.IFNL(Zero)
-                    }
+                    //was fan control
                     Return (Local0)
                 }
 
@@ -31447,6 +31389,51 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                  0x00
             }, Arg4)
         Return (Zero)
+    }
+    Device (FRNR)
+    {
+        Name (_HID, "FRN0000")
+        // CHEK: Used by ACPIPoller.kext to check temp and run/stop fans
+        Method (CHEK, 0, NotSerialized)
+        {
+            Store(\_TZ.TZ00._TMP, Local0)
+            If (LGreaterEqual (Local0, 0xCD1)) { // >55
+                //Turn on fans
+                If (LGreaterEqual (Local0, 0xD35)) { // >65
+                    If (LGreaterEqual (Local0, 0xD99)) { // >75
+                        If (LGreaterEqual (Local0, 0xDCB)) { // >80
+                            If (LGreaterEqual (Local0, 0xDFD)) { // >85
+                                If (LGreaterEqual (Local0, 0xE11)) { // >87
+                                    If (LGreaterEqual (Local0, 0xE25)) { // >89
+                                        If (LGreaterEqual (Local0, 0xE4D)) { // >93
+                                            \_SB.PCI0.LPCB.H_EC.IFNL(0x5F)
+                                        } Else {
+                                            \_SB.PCI0.LPCB.H_EC.IFNL(0x50)
+                                        }
+                                    } Else {
+                                        \_SB.PCI0.LPCB.H_EC.IFNL(0x46)
+                                    }
+                                } Else {
+                                    \_SB.PCI0.LPCB.H_EC.IFNL(0x46)
+                                }
+                            } Else {
+                                \_SB.PCI0.LPCB.H_EC.IFNL(0x32)
+                            }
+                        } Else {
+                            \_SB.PCI0.LPCB.H_EC.IFNL(0x28)
+                        }
+                    } Else {
+                        \_SB.PCI0.LPCB.H_EC.IFNL(0x28)
+                    }
+                } Else {
+                    \_SB.PCI0.LPCB.H_EC.IFNL(Zero)
+                }
+            } Else {
+                //Turn off fans
+                \_SB.PCI0.LPCB.H_EC.IFNL(Zero)
+            }
+            Return(Local0)
+        }
     }
 }
 

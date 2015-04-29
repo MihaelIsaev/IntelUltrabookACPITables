@@ -29743,11 +29743,24 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
             Device (PXSX)
             {
-                Name (_ADR, Zero)  // _ADR: Address
-                Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                
+                Name (_ADR, Zero)
+                Name (_SUN, One)
+                Name (_PRW, Package (0x02) {0x09,0x04})
+                Method (_DSM, 4, NotSerialized)
                 {
-                    Return (GPRW (0x69, 0x04))
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "AAPL,slot-name", "AirPort",
+                        "built-in", Buffer () {0x00},
+                        "device_type", "AirPort",
+                        "model", "Broadcom BCM4352 802.11 a/b/g/n/ac Wireless Network Controller",
+                        "name", "AirPort Extreme",
+                        "compatible","pci14e4,43b1"
+                    })
                 }
+
             }
 
             Method (HPME, 0, Serialized)

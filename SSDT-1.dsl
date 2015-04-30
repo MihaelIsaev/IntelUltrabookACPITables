@@ -2294,6 +2294,7 @@ DefinitionBlock ("SSDT-1.aml", "SSDT", 1, "DptfFf", "DptfFfrd", 0x00001000)
             }
 
             Notify (\_SB.PCI0.B0D4, 0x83)
+            Return (Zero)
         }
     }
 
@@ -3737,6 +3738,7 @@ DefinitionBlock ("SSDT-1.aml", "SSDT", 1, "DptfFf", "DptfFfrd", 0x00001000)
 
                     Return (Local1)
                 }
+                Return (Zero)
             }
 
             Method (PMAX, 0, Serialized)
@@ -4449,6 +4451,7 @@ DefinitionBlock ("SSDT-1.aml", "SSDT", 1, "DptfFf", "DptfFfrd", 0x00001000)
                     Return (ART0)
                 }
             }
+            Return (ART0)
         }
     }
 

@@ -9188,169 +9188,169 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             })
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
-                CreateWordField (BUF0, \_SB.PCI0._Y00._MAX, PBMX)  // _MAX: Maximum Base Address
+                CreateWordField (BUF0, ^_Y00._MAX, PBMX)  // _MAX: Maximum Base Address
                 Store (Subtract (ShiftRight (PELN, 0x14), 0x02), PBMX)
-                CreateWordField (BUF0, \_SB.PCI0._Y00._LEN, PBLN)  // _LEN: Length
+                CreateWordField (BUF0, ^_Y00._LEN, PBLN)  // _LEN: Length
                 Store (Subtract (ShiftRight (PELN, 0x14), One), PBLN)
                 If (PM1L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y01._LEN, C0LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y01._LEN, C0LN)  // _LEN: Length
                     Store (Zero, C0LN)
                 }
 
                 If (LEqual (PM1L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y01._RW, C0RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y01._RW, C0RW)  // _RW_: Read-Write Status
                     Store (Zero, C0RW)
                 }
 
                 If (PM1H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y02._LEN, C4LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y02._LEN, C4LN)  // _LEN: Length
                     Store (Zero, C4LN)
                 }
 
                 If (LEqual (PM1H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y02._RW, C4RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y02._RW, C4RW)  // _RW_: Read-Write Status
                     Store (Zero, C4RW)
                 }
 
                 If (PM2L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y03._LEN, C8LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y03._LEN, C8LN)  // _LEN: Length
                     Store (Zero, C8LN)
                 }
 
                 If (LEqual (PM2L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y03._RW, C8RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y03._RW, C8RW)  // _RW_: Read-Write Status
                     Store (Zero, C8RW)
                 }
 
                 If (PM2H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y04._LEN, CCLN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y04._LEN, CCLN)  // _LEN: Length
                     Store (Zero, CCLN)
                 }
 
                 If (LEqual (PM2H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y04._RW, CCRW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y04._RW, CCRW)  // _RW_: Read-Write Status
                     Store (Zero, CCRW)
                 }
 
                 If (PM3L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y05._LEN, D0LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y05._LEN, D0LN)  // _LEN: Length
                     Store (Zero, D0LN)
                 }
 
                 If (LEqual (PM3L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y05._RW, D0RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y05._RW, D0RW)  // _RW_: Read-Write Status
                     Store (Zero, D0RW)
                 }
 
                 If (PM3H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y06._LEN, D4LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y06._LEN, D4LN)  // _LEN: Length
                     Store (Zero, D4LN)
                 }
 
                 If (LEqual (PM3H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y06._RW, D4RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y06._RW, D4RW)  // _RW_: Read-Write Status
                     Store (Zero, D4RW)
                 }
 
                 If (PM4L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y07._LEN, D8LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y07._LEN, D8LN)  // _LEN: Length
                     Store (Zero, D8LN)
                 }
 
                 If (LEqual (PM4L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y07._RW, D8RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y07._RW, D8RW)  // _RW_: Read-Write Status
                     Store (Zero, D8RW)
                 }
 
                 If (PM4H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y08._LEN, DCLN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y08._LEN, DCLN)  // _LEN: Length
                     Store (Zero, DCLN)
                 }
 
                 If (LEqual (PM4H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y08._RW, DCRW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y08._RW, DCRW)  // _RW_: Read-Write Status
                     Store (Zero, DCRW)
                 }
 
                 If (PM5L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y09._LEN, E0LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y09._LEN, E0LN)  // _LEN: Length
                     Store (Zero, E0LN)
                 }
 
                 If (LEqual (PM5L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y09._RW, E0RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y09._RW, E0RW)  // _RW_: Read-Write Status
                     Store (Zero, E0RW)
                 }
 
                 If (PM5H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y0A._LEN, E4LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y0A._LEN, E4LN)  // _LEN: Length
                     Store (Zero, E4LN)
                 }
 
                 If (LEqual (PM5H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y0A._RW, E4RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y0A._RW, E4RW)  // _RW_: Read-Write Status
                     Store (Zero, E4RW)
                 }
 
                 If (PM6L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y0B._LEN, E8LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y0B._LEN, E8LN)  // _LEN: Length
                     Store (Zero, E8LN)
                 }
 
                 If (LEqual (PM6L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y0B._RW, E8RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y0B._RW, E8RW)  // _RW_: Read-Write Status
                     Store (Zero, E8RW)
                 }
 
                 If (PM6H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y0C._LEN, ECLN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y0C._LEN, ECLN)  // _LEN: Length
                     Store (Zero, ECLN)
                 }
 
                 If (LEqual (PM6H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y0C._RW, ECRW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y0C._RW, ECRW)  // _RW_: Read-Write Status
                     Store (Zero, ECRW)
                 }
 
                 If (PM0H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y0D._LEN, F0LN)  // _LEN: Length
+                    CreateDWordField (BUF0, ^_Y0D._LEN, F0LN)  // _LEN: Length
                     Store (Zero, F0LN)
                 }
 
                 If (LEqual (PM0H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y0D._RW, F0RW)  // _RW_: Read-Write Status
+                    CreateBitField (BUF0, ^_Y0D._RW, F0RW)  // _RW_: Read-Write Status
                     Store (Zero, F0RW)
                 }
 
-                CreateDWordField (BUF0, \_SB.PCI0._Y0E._MIN, M1MN)  // _MIN: Minimum Base Address
-                CreateDWordField (BUF0, \_SB.PCI0._Y0E._MAX, M1MX)  // _MAX: Maximum Base Address
-                CreateDWordField (BUF0, \_SB.PCI0._Y0E._LEN, M1LN)  // _LEN: Length
+                CreateDWordField (BUF0, ^_Y0E._MIN, M1MN)  // _MIN: Minimum Base Address
+                CreateDWordField (BUF0, ^_Y0E._MAX, M1MX)  // _MAX: Maximum Base Address
+                CreateDWordField (BUF0, ^_Y0E._LEN, M1LN)  // _LEN: Length
                 ShiftLeft (TLUD, 0x14, M1MN)
                 Add (Subtract (M1MX, M1MN), One, M1LN)
                 Return (BUF0)
@@ -10004,7 +10004,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Name (_HID, EisaId ("PNP0C09"))  // _HID: Hardware ID
                     Name (_UID, One)  // _UID: Unique ID
                     Name (ECAV, Zero)
-                    Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (BFFR, ResourceTemplate ()
                         {
@@ -10473,7 +10473,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             })
                         }
 
-                        Method (_BST, 0, NotSerialized)  // _BST: Battery Status
+                        Method (_BST, 0, Serialized)  // _BST: Battery Status
                         {
                             Name (PKG0, Package (0x04)
                             {
@@ -10534,7 +10534,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Return (0x0B)
                         }
 
-                        Method (_BIF, 0, NotSerialized)  // _BIF: Battery Information
+                        Method (_BIF, 0, Serialized)  // _BIF: Battery Information
                         {
                             Name (BPKG, Package (0x0D)
                             {
@@ -10566,7 +10566,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Return (BPKG)
                         }
 
-                        Method (_BIX, 0, NotSerialized)  // _BIX: Battery Information Extended
+                        Method (_BIX, 0, Serialized)  // _BIX: Battery Information Extended
                         {
                             Name (BPKG, Package (0x14)
                             {
@@ -10607,7 +10607,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Return (BPKG)
                         }
 
-                        Method (_BST, 0, NotSerialized)  // _BST: Battery Status
+                        Method (_BST, 0, Serialized)  // _BST: Battery Status
                         {
                             Name (PKG1, Package (0x04)
                             {
@@ -10695,7 +10695,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Return (0x0B)
                         }
 
-                        Method (_BIF, 0, NotSerialized)  // _BIF: Battery Information
+                        Method (_BIF, 0, Serialized)  // _BIF: Battery Information
                         {
                             Name (BPK2, Package (0x0D)
                             {
@@ -10726,7 +10726,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Return (BPK2)
                         }
 
-                        Method (_BST, 0, NotSerialized)  // _BST: Battery Status
+                        Method (_BST, 0, Serialized)  // _BST: Battery Status
                         {
                             Name (PKG2, Package (0x04)
                             {
@@ -11928,7 +11928,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0xC5, 0xF3, 0xBC, 0xDF, 0xA5, 0xE7, 0xE6, 0x44,
@@ -11939,8 +11939,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 {
                                     While (One)
                                     {
-                                        Store (ToInteger (Arg2), _T_0)
-                                        If (LEqual (_T_0, Zero))
+                                        Store (ToInteger (Arg2), TT_0)
+                                        If (LEqual (TT_0, Zero))
                                         {
                                             Return (Buffer (One)
                                             {
@@ -11949,7 +11949,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, One))
+                                            If (LEqual (TT_0, One))
                                             {
                                                 If (LEqual (And (PB1E, One), One))
                                                 {
@@ -12417,7 +12417,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         If (HPAE)
                         {
-                            CreateDWordField (BUF0, \_SB.PCI0.LPCB.HPET._Y0F._BAS, HPT0)  // _BAS: Base Address
+                            CreateDWordField (BUF0, ^_Y0F._BAS, HPT0)  // _BAS: Base Address
                             If (LEqual (HPAS, One))
                             {
                                 Store (0xFED01000, HPT0)
@@ -12872,9 +12872,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store (0x03, R07H)
                             If (LAnd (NATP, CMAP))
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.UAR3._CRS._Y10._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.UAR3._CRS._Y10._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.UAR3._CRS._Y10._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.UAR3._CRS._Y10._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.UAR3._CRS._Y10._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.UAR3._CRS._Y11._INT, IRQW)  // _INT: Interrupts
@@ -13054,9 +13054,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store (0x02, R07H)
                             If (LAnd (NATP, CMBP))
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.UAR4._CRS._Y12._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.UAR4._CRS._Y12._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.UAR4._CRS._Y12._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.UAR4._CRS._Y12._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.UAR4._CRS._Y12._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.UAR4._CRS._Y13._INT, IRQW)  // _INT: Interrupts
@@ -13274,9 +13274,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             })
                             If (LEqual (And (RF0H, 0xE0), Zero))
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.LPT1._CRS._Y14._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.LPT1._CRS._Y14._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.LPT1._CRS._Y14._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.LPT1._CRS._Y14._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.LPT1._CRS._Y14._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.LPT1._CRS._Y15._INT, IRQW)  // _INT: Interrupts
@@ -13467,9 +13467,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             })
                             If (LEqual (And (RF0H, 0xE0), 0x20))
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PBI1._CRS._Y16._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PBI1._CRS._Y16._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PBI1._CRS._Y16._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PBI1._CRS._Y16._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PBI1._CRS._Y16._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PBI1._CRS._Y17._INT, IRQW)  // _INT: Interrupts
@@ -13665,9 +13665,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             If (LOr (LEqual (And (RF0H, 0xE0), 0x60), LEqual (And (
                                 RF0H, 0xE0), 0x40)))
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PEP1._CRS._Y18._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PEP1._CRS._Y18._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PEP1._CRS._Y18._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PEP1._CRS._Y18._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PEP1._CRS._Y18._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PEP1._CRS._Y19._INT, IRQW)  // _INT: Interrupts
@@ -13842,14 +13842,14 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             If (LOr (LEqual (And (RF0H, 0xE0), 0xE0), LEqual (And (
                                 RF0H, 0xE0), 0x80)))
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1A._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1A._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1A._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1A._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1A._LEN, LEN0)  // _LEN: Length
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1B._MIN, IOL2)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1B._MIN, IOL2)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x0B, IOH2)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1B._MAX, IOL3)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1B._MAX, IOL3)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x0D, IOH3)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1B._LEN, LEN1)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.N393.PEC1._CRS._Y1C._INT, IRQW)  // _INT: Interrupts
@@ -14151,9 +14151,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             })
                             If (LAnd (SMSC, CMCP))
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM17.UAR1._CRS._Y1E._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM17.UAR1._CRS._Y1E._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM17.UAR1._CRS._Y1E._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM17.UAR1._CRS._Y1E._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.SM17.UAR1._CRS._Y1E._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.SM17.UAR1._CRS._Y1F._INT, IRQW)  // _INT: Interrupts
@@ -14337,13 +14337,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             })
                             If (LAnd (SMSC, CIRP))
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y20._MIN, IO10)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y20._MIN, IO10)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IO11)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y20._MAX, IO12)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y20._MAX, IO12)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IO13)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y21._MIN, IO20)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y21._MIN, IO20)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x0B, IO21)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y21._MAX, IO22)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y21._MAX, IO22)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x0D, IO23)
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y22._INT, IRQW)  // _INT: Interrupts
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.SM17.UAR2._CRS._Y23._DMA, DMA0)  // _DMA: Direct Memory Access
@@ -14690,9 +14690,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store (0x03, WR07)
                             If (W381)
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR5._CRS._Y24._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR5._CRS._Y24._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR5._CRS._Y24._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR5._CRS._Y24._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR5._CRS._Y24._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR5._CRS._Y25._INT, IRQW)  // _INT: Interrupts
@@ -14876,9 +14876,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store (0x02, WR07)
                             If (W381)
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR8._CRS._Y26._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR8._CRS._Y26._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR8._CRS._Y26._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR8._CRS._Y26._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR8._CRS._Y26._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.UAR8._CRS._Y27._INT, IRQW)  // _INT: Interrupts
@@ -15181,17 +15181,17 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 IRQNoFlags (_Y2B)
                                     {0}
                             })
-                            CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y28._MIN, IO00)  // _MIN: Minimum Base Address
+                            CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y28._MIN, IO00)  // _MIN: Minimum Base Address
                             CreateByteField (BUF0, 0x03, IO01)
-                            CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y28._MAX, IO10)  // _MAX: Maximum Base Address
+                            CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y28._MAX, IO10)  // _MAX: Maximum Base Address
                             CreateByteField (BUF0, 0x05, IO11)
-                            CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y29._MIN, IO20)  // _MIN: Minimum Base Address
+                            CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y29._MIN, IO20)  // _MIN: Minimum Base Address
                             CreateByteField (BUF0, 0x0B, IO21)
-                            CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y29._MAX, IO30)  // _MAX: Maximum Base Address
+                            CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y29._MAX, IO30)  // _MAX: Maximum Base Address
                             CreateByteField (BUF0, 0x0D, IO31)
-                            CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y2A._MIN, IO40)  // _MIN: Minimum Base Address
+                            CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y2A._MIN, IO40)  // _MIN: Minimum Base Address
                             CreateByteField (BUF0, 0x13, IO41)
-                            CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y2A._MAX, IO50)  // _MAX: Maximum Base Address
+                            CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y2A._MAX, IO50)  // _MAX: Maximum Base Address
                             CreateByteField (BUF0, 0x15, IO51)
                             CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.ECIR._CRS._Y2B._INT, IRQW)  // _INT: Interrupts
                             Store (0x16, WR07)
@@ -15489,9 +15489,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 })
                                 If (LEqual (And (WRF0, 0xE0), Zero))
                                 {
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.LPT2._CRS._Y2C._MIN, IOL0)  // _MIN: Minimum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.LPT2._CRS._Y2C._MIN, IOL0)  // _MIN: Minimum Base Address
                                     CreateByteField (BUF0, 0x03, IOH0)
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.LPT2._CRS._Y2C._MAX, IOL1)  // _MAX: Maximum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.LPT2._CRS._Y2C._MAX, IOL1)  // _MAX: Maximum Base Address
                                     CreateByteField (BUF0, 0x05, IOH1)
                                     CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.LPT2._CRS._Y2C._LEN, LEN0)  // _LEN: Length
                                     CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.LPT2._CRS._Y2D._INT, IRQW)  // _INT: Interrupts
@@ -15682,9 +15682,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 })
                                 If (LEqual (And (WRF0, 0xE0), 0x20))
                                 {
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PBI2._CRS._Y2E._MIN, IOL0)  // _MIN: Minimum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PBI2._CRS._Y2E._MIN, IOL0)  // _MIN: Minimum Base Address
                                     CreateByteField (BUF0, 0x03, IOH0)
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PBI2._CRS._Y2E._MAX, IOL1)  // _MAX: Maximum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PBI2._CRS._Y2E._MAX, IOL1)  // _MAX: Maximum Base Address
                                     CreateByteField (BUF0, 0x05, IOH1)
                                     CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PBI2._CRS._Y2E._LEN, LEN0)  // _LEN: Length
                                     CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PBI2._CRS._Y2F._INT, IRQW)  // _INT: Interrupts
@@ -15877,9 +15877,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 If (LOr (LEqual (And (WRF0, 0xE0), 0x60), LEqual (And (
                                     WRF0, 0xE0), 0x40)))
                                 {
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PEP2._CRS._Y30._MIN, IOL0)  // _MIN: Minimum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PEP2._CRS._Y30._MIN, IOL0)  // _MIN: Minimum Base Address
                                     CreateByteField (BUF0, 0x03, IOH0)
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PEP2._CRS._Y30._MAX, IOL1)  // _MAX: Maximum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PEP2._CRS._Y30._MAX, IOL1)  // _MAX: Maximum Base Address
                                     CreateByteField (BUF0, 0x05, IOH1)
                                     CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PEP2._CRS._Y30._LEN, LEN0)  // _LEN: Length
                                     CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PEP2._CRS._Y31._INT, IRQW)  // _INT: Interrupts
@@ -16051,14 +16051,14 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 If (LOr (LEqual (And (WRF0, 0xE0), 0xE0), LEqual (And (
                                     WRF0, 0xE0), 0x80)))
                                 {
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y32._MIN, IOL0)  // _MIN: Minimum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y32._MIN, IOL0)  // _MIN: Minimum Base Address
                                     CreateByteField (BUF0, 0x03, IOH0)
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y32._MAX, IOL1)  // _MAX: Maximum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y32._MAX, IOL1)  // _MAX: Maximum Base Address
                                     CreateByteField (BUF0, 0x05, IOH1)
                                     CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y32._LEN, LEN0)  // _LEN: Length
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y33._MIN, IOL2)  // _MIN: Minimum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y33._MIN, IOL2)  // _MIN: Minimum Base Address
                                     CreateByteField (BUF0, 0x0B, IOH2)
-                                    CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y33._MAX, IOL3)  // _MAX: Maximum Base Address
+                                    CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y33._MAX, IOL3)  // _MAX: Maximum Base Address
                                     CreateByteField (BUF0, 0x0D, IOH3)
                                     CreateByteField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y33._LEN, LEN1)  // _LEN: Length
                                     CreateWordField (BUF0, \_SB.PCI0.LPCB.WPCN.PEC2._CRS._Y34._INT, IRQW)  // _INT: Interrupts
@@ -16399,9 +16399,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             })
                             If (SMC1)
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.UAR6._CRS._Y36._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.UAR6._CRS._Y36._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.UAR6._CRS._Y36._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.UAR6._CRS._Y36._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.UAR6._CRS._Y36._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.UAR6._CRS._Y37._INT, IRQW)  // _INT: Interrupts
@@ -16618,13 +16618,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             })
                             If (SMC1)
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y38._MIN, IO10)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y38._MIN, IO10)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IO11)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y38._MAX, IO12)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y38._MAX, IO12)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IO13)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y39._MIN, IO20)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y39._MIN, IO20)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x0B, IO21)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y39._MAX, IO22)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y39._MAX, IO22)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x0D, IO23)
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y3A._INT, IRQW)  // _INT: Interrupts
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.UAR7._CRS._Y3B._DMA, DMA0)  // _DMA: Direct Memory Access
@@ -16917,9 +16917,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             })
                             If (SMC1)
                             {
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.LPT1._CRS._Y3C._MIN, IOL0)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.LPT1._CRS._Y3C._MIN, IOL0)  // _MIN: Minimum Base Address
                                 CreateByteField (BUF0, 0x03, IOH0)
-                                CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.LPT1._CRS._Y3C._MAX, IOL1)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.LPT1._CRS._Y3C._MAX, IOL1)  // _MAX: Maximum Base Address
                                 CreateByteField (BUF0, 0x05, IOH1)
                                 CreateByteField (BUF0, \_SB.PCI0.LPCB.SM10.LPT1._CRS._Y3C._LEN, LEN0)  // _LEN: Length
                                 CreateWordField (BUF0, \_SB.PCI0.LPCB.SM10.LPT1._CRS._Y3D._INT, IRQW)  // _INT: Interrupts
@@ -17947,6 +17947,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
         Store (Local1, PPL1)
         Store (One, PL1E)
         Store (One, CLP1)
+        Return (Zero)
     }
 
     Method (RPL1, 0, Serialized)
@@ -18086,7 +18087,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Return (PFIA)
         }
 
-        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        Method (_INI, 0, Serialized)  // _INI: Initialize
         {
             Store (0x07D0, OSYS)
             If (CondRefOf (\_OSI, Local0))
@@ -18826,7 +18827,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, Buffer (0x10)
                         {
                             /* 0000 */   0xE0, 0xBF, 0xFE, 0xB8, 0xF8, 0xBA, 0x4B, 0x45,
@@ -18853,8 +18854,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             While (One)
                             {
-                                Store (PEPY, _T_0)
-                                If (LEqual (_T_0, One))
+                                Store (PEPY, TT_0)
+                                If (LEqual (TT_0, One))
                                 {
                                     Return (Package (0x02)
                                     {
@@ -18867,7 +18868,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02))
+                                    If (LEqual (TT_0, 0x02))
                                     {
                                         Return (Package (0x02)
                                         {
@@ -18880,7 +18881,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x03))
+                                        If (LEqual (TT_0, 0x03))
                                         {
                                             Return (DEVS)
                                         }
@@ -20069,7 +20070,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Return (Zero)
         }
 
-        Method (OSUP, 1, NotSerialized)
+        Method (OSUP, 1, Serialized)
         {
             Add (Arg0, 0x0548, Local0)
             OperationRegion (PXVD, SystemMemory, Local0, 0x08)
@@ -20104,12 +20105,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
         Method (MMTB, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
             ADBG ("MMTB")
             Store (PEBS, Local0)
             While (One)
             {
-                Store (ToInteger (TBSE), _T_0)
+                Store (ToInteger (TBSE), TT_0)
                 If (LNotEqual (Match (Package (0x08)
                                 {
                                     One, 
@@ -20120,7 +20121,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     0x06, 
                                     0x07, 
                                     0x08
-                                }, MEQ, _T_0, MTR, Zero, Zero), Ones))
+                                }, MEQ, TT_0, MTR, Zero, Zero), Ones))
                 {
                     Add (Local0, 0x000E0000, Local0)
                     Subtract (ToInteger (TBSE), One, Local1)
@@ -20129,7 +20130,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x09))
+                    If (LEqual (TT_0, 0x09))
                     {
                         Add (Local0, 0x8000, Local0)
                     }
@@ -20152,7 +20153,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Return (Local0)
         }
 
-        Method (OSUW, 0, NotSerialized)
+        Method (OSUW, 0, Serialized)
         {
             ADBG ("OSUW")
             Store (MMTB (), Local0)
@@ -20173,7 +20174,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             }
         }
 
-        Method (TBFF, 0, NotSerialized)
+        Method (TBFF, 0, Serialized)
         {
             ADBG ("TBFF")
             Store (MMTB (), Local0)
@@ -20194,7 +20195,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             }
         }
 
-        Method (TSUB, 0, NotSerialized)
+        Method (TSUB, 0, Serialized)
         {
             Store (PEBS, Local0)
             Add (Local0, 0x000E0000, Local0)
@@ -20269,7 +20270,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Return (Local1)
         }
 
-        Method (_E2A, 0, NotSerialized)  // _Exx: Edge-Triggered GPE
+        Method (_E2A, 0, Serialized)  // _Exx: Edge-Triggered GPE
         {
             WWAK ()
             WSUB ()
@@ -20333,6 +20334,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
             Sleep (0x10)
             Release (OSUM)
+            Return (Zero)
         }
     }
 
@@ -20668,6 +20670,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
                 Return (TEMP)
             }
+            Return (TEMP)
         }
 
         Method (RDGP, 1, Serialized)
@@ -20685,6 +20688,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
                 Return (TEMP)
             }
+            Return (TEMP)
         }
 
         Method (WTGP, 2, Serialized)
@@ -21126,7 +21130,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -21135,8 +21139,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), TT_0)
+                                    If (LEqual (TT_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -21155,7 +21159,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (TT_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -21168,7 +21172,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (TT_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -21225,7 +21229,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -21234,8 +21238,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), TT_0)
+                                    If (LEqual (TT_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -21254,7 +21258,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (TT_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -21267,7 +21271,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (TT_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -21324,7 +21328,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -21333,8 +21337,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), TT_0)
+                                    If (LEqual (TT_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -21353,7 +21357,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (TT_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -21366,7 +21370,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (TT_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -21423,7 +21427,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -21432,8 +21436,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), TT_0)
+                                    If (LEqual (TT_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -21452,7 +21456,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (TT_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -21465,7 +21469,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (TT_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -21689,7 +21693,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -21698,8 +21702,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), TT_0)
+                                    If (LEqual (TT_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -21718,7 +21722,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (TT_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -21731,7 +21735,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (TT_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -21788,7 +21792,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -21797,8 +21801,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), TT_0)
+                                    If (LEqual (TT_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -21817,7 +21821,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (TT_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -21830,7 +21834,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (TT_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -22027,98 +22031,98 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
             Method (PR2S, 1, Serialized)
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (And (CDID, 0xF000), 0x8000))
                 {
                     While (One)
                     {
-                        Store (Arg0, _T_0)
-                        If (LEqual (_T_0, One))
+                        Store (Arg0, TT_0)
+                        If (LEqual (TT_0, One))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (TT_0, 0x02))
                             {
                                 Return (0x02)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x03))
+                                If (LEqual (TT_0, 0x03))
                                 {
                                     Return (0x04)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x04))
+                                    If (LEqual (TT_0, 0x04))
                                     {
                                         Return (0x08)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x05))
+                                        If (LEqual (TT_0, 0x05))
                                         {
                                             Return (0x0100)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x06))
+                                            If (LEqual (TT_0, 0x06))
                                             {
                                                 Return (0x0200)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x07))
+                                                If (LEqual (TT_0, 0x07))
                                                 {
                                                     Return (0x0400)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08))
+                                                    If (LEqual (TT_0, 0x08))
                                                     {
                                                         Return (0x0800)
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0x09))
+                                                        If (LEqual (TT_0, 0x09))
                                                         {
                                                             Return (0x10)
                                                         }
                                                         Else
                                                         {
-                                                            If (LEqual (_T_0, 0x0A))
+                                                            If (LEqual (TT_0, 0x0A))
                                                             {
                                                                 Return (0x20)
                                                             }
                                                             Else
                                                             {
-                                                                If (LEqual (_T_0, 0x0B))
+                                                                If (LEqual (TT_0, 0x0B))
                                                                 {
                                                                     Return (0x1000)
                                                                 }
                                                                 Else
                                                                 {
-                                                                    If (LEqual (_T_0, 0x0C))
+                                                                    If (LEqual (TT_0, 0x0C))
                                                                     {
                                                                         Return (0x2000)
                                                                     }
                                                                     Else
                                                                     {
-                                                                        If (LEqual (_T_0, 0x0D))
+                                                                        If (LEqual (TT_0, 0x0D))
                                                                         {
                                                                             Return (0x40)
                                                                         }
                                                                         Else
                                                                         {
-                                                                            If (LEqual (_T_0, 0x0E))
+                                                                            If (LEqual (TT_0, 0x0E))
                                                                             {
                                                                                 Return (0x80)
                                                                             }
                                                                             Else
                                                                             {
-                                                                                If (LEqual (_T_0, 0x0F))
+                                                                                If (LEqual (TT_0, 0x0F))
                                                                                 {
                                                                                     Return (0x4000)
                                                                                 }
@@ -22144,56 +22148,56 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 {
                     While (One)
                     {
-                        Store (Arg0, _T_1)
-                        If (LEqual (_T_1, One))
+                        Store (Arg0, TT_1)
+                        If (LEqual (TT_1, One))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, 0x02))
+                            If (LEqual (TT_1, 0x02))
                             {
                                 Return (0x02)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x03))
+                                If (LEqual (TT_1, 0x03))
                                 {
                                     Return (0x04)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x04))
+                                    If (LEqual (TT_1, 0x04))
                                     {
                                         Return (0x08)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x05))
+                                        If (LEqual (TT_1, 0x05))
                                         {
                                             Return (0x10)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_1, 0x06))
+                                            If (LEqual (TT_1, 0x06))
                                             {
                                                 Return (0x20)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_1, 0x07))
+                                                If (LEqual (TT_1, 0x07))
                                                 {
                                                     Return (0x40)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_1, 0x08))
+                                                    If (LEqual (TT_1, 0x08))
                                                     {
                                                         Return (0x80)
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_1, 0x09))
+                                                        If (LEqual (TT_1, 0x09))
                                                         {
                                                             Return (0x0100)
                                                         }
@@ -22209,6 +22213,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         Break
                     }
                 }
+                Return (Zero)
             }
 
             Name (XRST, Zero)
@@ -22399,6 +22404,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 {
                     Store (Local7, MEMB)
                 }
+                Return (Zero)
             }
 
             Method (_PS3, 0, Serialized)  // _PS3: Power State 3
@@ -22504,6 +22510,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 {
                     Store (Local4, PDBM)
                 }
+                Return (Zero)
             }
 
             Method (CUID, 1, Serialized)
@@ -23492,7 +23499,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         0x00000FEC,         // Address Length
                         _Y50)
                 })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Store (ResourceTemplate ()
                         {
@@ -23563,60 +23570,60 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
 
                 Method (CNTR, 1, Serialized)
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, One))
+                        Store (ToInteger (Arg0), TT_0)
+                        If (LEqual (TT_0, One))
                         {
                             CreateDWordField (BUF1, \_SB.PCI0.SIRC._Y47._BAS, BAR1)  // _BAS: Base Address
                             Return (BAR1)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (TT_0, 0x02))
                             {
                                 CreateDWordField (BUF2, \_SB.PCI0.SIRC._Y48._BAS, BAR2)  // _BAS: Base Address
                                 Return (BAR2)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x03))
+                                If (LEqual (TT_0, 0x03))
                                 {
                                     CreateDWordField (BUF3, \_SB.PCI0.SIRC._Y49._BAS, BAR3)  // _BAS: Base Address
                                     Return (BAR3)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x04))
+                                    If (LEqual (TT_0, 0x04))
                                     {
                                         CreateDWordField (BUF4, \_SB.PCI0.SIRC._Y4A._BAS, BAR4)  // _BAS: Base Address
                                         Return (BAR4)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x05))
+                                        If (LEqual (TT_0, 0x05))
                                         {
                                             CreateDWordField (BUF5, \_SB.PCI0.SIRC._Y4B._BAS, BAR5)  // _BAS: Base Address
                                             Return (BAR5)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x06))
+                                            If (LEqual (TT_0, 0x06))
                                             {
                                                 CreateDWordField (BUF6, \_SB.PCI0.SIRC._Y4C._BAS, BAR6)  // _BAS: Base Address
                                                 Return (BAR6)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x07))
+                                                If (LEqual (TT_0, 0x07))
                                                 {
                                                     CreateDWordField (BUF7, \_SB.PCI0.SIRC._Y4D._BAS, BAR7)  // _BAS: Base Address
                                                     Return (BAR7)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08))
+                                                    If (LEqual (TT_0, 0x08))
                                                     {
                                                         CreateDWordField (BUF8, \_SB.PCI0.SIRC._Y4E._BAS, BAR8)  // _BAS: Base Address
                                                         Return (BAR8)
@@ -23731,7 +23738,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (CRID)
                 }
 
-                Method (PTD3, 0, NotSerialized)
+                Method (PTD3, 0, Serialized)
                 {
                     If (LNotEqual (^^SIRC.CNTR (One), Zero))
                     {
@@ -23803,7 +23810,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (SSCN, 0, NotSerialized)
+                Method (SSCN, 0, Serialized)
                 {
                     Name (PKG, Package (0x03)
                     {
@@ -23817,7 +23824,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (FMCN, 0, NotSerialized)
+                Method (FMCN, 0, Serialized)
                 {
                     Name (PKG, Package (0x03)
                     {
@@ -23831,7 +23838,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (FPCN, 0, NotSerialized)
+                Method (FPCN, 0, Serialized)
                 {
                     Name (PKG, Package (0x03)
                     {
@@ -23845,7 +23852,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M0D3, 0, NotSerialized)
+                Method (M0D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -23855,7 +23862,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M1D3, 0, NotSerialized)
+                Method (M1D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -23865,7 +23872,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M0D0, 0, NotSerialized)
+                Method (M0D0, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -23886,7 +23893,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         0x00000007,
                     }
                 })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (DBUF, ResourceTemplate ()
                     {
@@ -24002,7 +24009,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (SSCN, 0, NotSerialized)
+                Method (SSCN, 0, Serialized)
                 {
                     Name (PKG, Package (0x03)
                     {
@@ -24016,7 +24023,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (FMCN, 0, NotSerialized)
+                Method (FMCN, 0, Serialized)
                 {
                     Name (PKG, Package (0x03)
                     {
@@ -24030,7 +24037,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (FPCN, 0, NotSerialized)
+                Method (FPCN, 0, Serialized)
                 {
                     Name (PKG, Package (0x03)
                     {
@@ -24044,7 +24051,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M0D3, 0, NotSerialized)
+                Method (M0D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24054,7 +24061,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M1D3, 0, NotSerialized)
+                Method (M1D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24064,7 +24071,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M0D0, 0, NotSerialized)
+                Method (M0D0, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24085,7 +24092,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         0x00000007,
                     }
                 })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (DBUF, ResourceTemplate ()
                     {
@@ -24178,7 +24185,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 Name (_CID, "INT33C0")  // _CID: Compatible ID
                 Name (_UID, One)  // _UID: Unique ID
                 Name (XADR, 0x00150003)
-                Method (M0D3, 0, NotSerialized)
+                Method (M0D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24188,7 +24195,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M1D3, 0, NotSerialized)
+                Method (M1D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24209,7 +24216,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         0x00000015,
                     }
                 })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (DBUF, ResourceTemplate ()
                     {
@@ -24297,7 +24304,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                 Name (_CID, "INT33C1")  // _CID: Compatible ID
                 Name (_UID, 0x02)  // _UID: Unique ID
                 Name (XADR, 0x00150004)
-                Method (M0D3, 0, NotSerialized)
+                Method (M0D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24307,7 +24314,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M1D3, 0, NotSerialized)
+                Method (M1D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24328,7 +24335,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         0x00000015,
                     }
                 })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (DBUF, ResourceTemplate ()
                     {
@@ -24434,7 +24441,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (M0D3, 0, NotSerialized)
+                Method (M0D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24444,7 +24451,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M1D3, 0, NotSerialized)
+                Method (M1D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24465,7 +24472,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         0x00000015,
                     }
                 })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (DBUF, ResourceTemplate ()
                     {
@@ -24571,7 +24578,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (M0D3, 0, NotSerialized)
+                Method (M0D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24581,7 +24588,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     Return (PKG)
                 }
 
-                Method (M1D3, 0, NotSerialized)
+                Method (M1D3, 0, Serialized)
                 {
                     Name (PKG, Package (0x01)
                     {
@@ -24602,7 +24609,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         0x0000000D,
                     }
                 })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (DBUF, ResourceTemplate ()
                     {
@@ -24798,7 +24805,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (TST1)
             {
                 Name (_HID, "TST0001")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -24842,7 +24849,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (TST2)
             {
                 Name (_HID, "TST0002")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -25074,7 +25081,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -25123,6 +25130,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store ("Method _DSM Function HID", Debug)
                             Return (Zero)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -25149,7 +25157,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -25198,6 +25206,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store ("Method _DSM Function HID", Debug)
                             Return (Zero)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -25224,7 +25233,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -25273,6 +25282,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store ("Method _DSM Function HID", Debug)
                             Return (Zero)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -25299,7 +25309,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -25348,6 +25358,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store ("Method _DSM Function HID", Debug)
                             Return (Zero)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -25377,7 +25388,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -25426,7 +25437,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -25463,7 +25474,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -25494,7 +25505,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -25525,7 +25536,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -25556,7 +25567,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -25587,7 +25598,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -25650,6 +25661,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -25660,7 +25672,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -25746,6 +25758,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -25756,7 +25769,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -25822,6 +25835,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -25844,7 +25858,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -25950,6 +25964,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (0x20)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -25972,7 +25987,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -26078,6 +26093,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -26100,7 +26116,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -26188,7 +26204,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -26237,6 +26253,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store ("Method _DSM Function HID", Debug)
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -26263,7 +26280,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -26312,6 +26329,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store ("Method _DSM Function HID", Debug)
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -26338,7 +26356,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -26387,6 +26405,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store ("Method _DSM Function HID", Debug)
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -26413,7 +26432,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -26462,6 +26481,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             Store ("Method _DSM Function HID", Debug)
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -26491,7 +26511,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -26522,7 +26542,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -26553,7 +26573,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -26584,7 +26604,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -26615,7 +26635,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -26665,6 +26685,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (Zero)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -26687,7 +26708,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -26740,7 +26761,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFI, ResourceTemplate ()
                     {
@@ -26793,6 +26814,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -26815,7 +26837,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -26887,6 +26909,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -26909,7 +26932,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -26981,6 +27004,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (0x0F)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -27003,7 +27027,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBFG, ResourceTemplate ()
                     {
@@ -27075,6 +27099,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -27127,7 +27152,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         CreateByteField (SBFG, 0x38, VAL1)
                         Store (0x0D, VAL1)
-                        CreateByteField (SBFI, \_SB.PCI0.I2C1.TPD0._CRS._Y61._INT, VAL3)  // _INT: Interrupts
+                        CreateDWordField (SBFI, \_SB.PCI0.I2C1.TPD0._CRS._Y61._INT, VAL3)  // _INT: Interrupts
                         Store (0x1B, VAL3)
                     }
 
@@ -27179,6 +27204,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (0x20)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -27231,7 +27257,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         CreateByteField (SBFG, 0x38, VAL1)
                         Store (0x0D, VAL1)
-                        CreateByteField (SBFI, \_SB.PCI0.I2C1.TPD1._CRS._Y62._INT, VAL3)  // _INT: Interrupts
+                        CreateDWordField (SBFI, \_SB.PCI0.I2C1.TPD1._CRS._Y62._INT, VAL3)  // _INT: Interrupts
                         Store (0x1B, VAL3)
                     }
 
@@ -27283,6 +27309,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -27335,7 +27362,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         CreateByteField (SBFG, 0x38, VAL1)
                         Store (0x0D, VAL1)
-                        CreateByteField (SBFI, \_SB.PCI0.I2C1.TPD2._CRS._Y63._INT, VAL3)  // _INT: Interrupts
+                        CreateDWordField (SBFI, \_SB.PCI0.I2C1.TPD2._CRS._Y63._INT, VAL3)  // _INT: Interrupts
                         Store (0x1B, VAL3)
                     }
 
@@ -27387,6 +27414,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -27439,7 +27467,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         CreateByteField (SBFG, 0x38, VAL1)
                         Store (0x0D, VAL1)
-                        CreateByteField (SBFI, \_SB.PCI0.I2C1.TPD3._CRS._Y64._INT, VAL3)  // _INT: Interrupts
+                        CreateDWordField (SBFI, \_SB.PCI0.I2C1.TPD3._CRS._Y64._INT, VAL3)  // _INT: Interrupts
                         Store (0x1B, VAL3)
                     }
 
@@ -27503,6 +27531,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (One)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -27555,11 +27584,11 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         CreateByteField (SBFG, 0x38, VAL1)
                         Store (0x0D, VAL1)
-                        CreateByteField (SBFI, \_SB.PCI0.I2C1.TPD7._CRS._Y65._INT, VAL3)  // _INT: Interrupts
+                        CreateDWordField (SBFI, \_SB.PCI0.I2C1.TPD7._CRS._Y65._INT, VAL3)  // _INT: Interrupts
                         Store (0x1B, VAL3)
                         If (LEqual (S0ID, Zero))
                         {
-                            CreateByteField (SBFG, \_SB.PCI0.I2C1.TPD7._CRS._Y66._MOD, VAL2)  // _MOD: Mode
+                            CreateBitField (SBFG, \_SB.PCI0.I2C1.TPD7._CRS._Y66._MOD, VAL2)  // _MOD: Mode
                             And (VAL2, 0xE7, VAL2)
                             CreateByteField (SBFI, 0x24, VAL4)
                             And (VAL4, 0xE7, VAL4)
@@ -27669,6 +27698,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         {
                             Return (0x20)
                         }
+                        Return (Zero)
                     }
                     Else
                     {
@@ -27721,11 +27751,11 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         CreateByteField (SBFG, 0x38, VAL1)
                         Store (0x0D, VAL1)
-                        CreateByteField (SBFI, \_SB.PCI0.I2C1.TPD8._CRS._Y67._INT, VAL3)  // _INT: Interrupts
+                        CreateDWordField (SBFI, \_SB.PCI0.I2C1.TPD8._CRS._Y67._INT, VAL3)  // _INT: Interrupts
                         Store (0x1B, VAL3)
                         If (LEqual (S0ID, Zero))
                         {
-                            CreateByteField (SBFG, \_SB.PCI0.I2C1.TPD8._CRS._Y68._MOD, VAL2)  // _MOD: Mode
+                            CreateBitField (SBFG, \_SB.PCI0.I2C1.TPD8._CRS._Y68._MOD, VAL2)  // _MOD: Mode
                             And (VAL2, 0xE7, VAL2)
                             CreateByteField (SBFI, 0x24, VAL4)
                             And (VAL4, 0xE7, VAL4)
@@ -27807,7 +27837,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -27839,7 +27869,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -27871,7 +27901,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -27903,7 +27933,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -27935,7 +27965,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -27967,7 +27997,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -27999,7 +28029,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -28034,7 +28064,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -28066,7 +28096,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -28098,7 +28128,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -28130,7 +28160,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -28162,7 +28192,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -28194,7 +28224,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -28226,7 +28256,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (SBUF, ResourceTemplate ()
                     {
@@ -28246,7 +28276,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (BTH0)
             {
                 Name (_HID, "INT33E0")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (UBUF, ResourceTemplate ()
                     {
@@ -28275,7 +28305,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (GPS0)
             {
                 Name (_HID, "GPS0001")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (UBUF, ResourceTemplate ()
                     {
@@ -28304,7 +28334,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (SER0)
             {
                 Name (_HID, "SER0001")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (UBUF, ResourceTemplate ()
                     {
@@ -28333,7 +28363,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (SER1)
             {
                 Name (_HID, "SER0002")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (UBUF, ResourceTemplate ()
                     {
@@ -28376,7 +28406,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -28396,7 +28426,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (BTH1)
             {
                 Name (_HID, "INT33E0")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (UBUF, ResourceTemplate ()
                     {
@@ -28446,7 +28476,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (UBUF, ResourceTemplate ()
                     {
@@ -28493,7 +28523,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (GPS1)
             {
                 Name (_HID, "GPS1001")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (UBUF, ResourceTemplate ()
                     {
@@ -28522,7 +28552,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (SER8)
             {
                 Name (_HID, "SER1001")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (UBUF, ResourceTemplate ()
                     {
@@ -28551,7 +28581,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Device (SER9)
             {
                 Name (_HID, "SER1002")  // _HID: Hardware ID
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (UBUF, ResourceTemplate ()
                     {
@@ -28594,7 +28624,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                 }
 
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
                     {
@@ -28724,11 +28754,11 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Name (EOD, One)
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (CODS), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (CODS), TT_0)
+                    If (LEqual (TT_0, Zero))
                     {
                         Store (^^I2C0.ACD0.MCLK, MCLK)
                         Store (^^I2C0.ACD0.SCLK, SCLK)
@@ -28736,7 +28766,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (TT_0, One))
                         {
                             Store (^^I2C0.ACD1.MCLK, MCLK)
                             Store (^^I2C0.ACD1.SCLK, SCLK)
@@ -28744,7 +28774,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (TT_0, 0x02))
                             {
                                 Store (^^I2C0.ACD2.MCLK, MCLK)
                                 Store (^^I2C0.ACD2.SCLK, SCLK)
@@ -28894,12 +28924,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
+                    Store (ToInteger (Arg0), TT_0)
+                    If (LEqual (TT_0, Buffer (0x10)
                             {
                                 /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
                                 /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
@@ -28907,8 +28937,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Store (ToInteger (Arg2), TT_1)
+                            If (LEqual (TT_1, Zero))
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -28932,7 +28962,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (TT_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -28956,7 +28986,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x06))
+                                    If (LEqual (TT_1, 0x06))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -29138,12 +29168,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
+                    Store (ToInteger (Arg0), TT_0)
+                    If (LEqual (TT_0, Buffer (0x10)
                             {
                                 /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
                                 /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
@@ -29151,8 +29181,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Store (ToInteger (Arg2), TT_1)
+                            If (LEqual (TT_1, Zero))
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -29176,7 +29206,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (TT_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -29200,7 +29230,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x06))
+                                    If (LEqual (TT_1, 0x06))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -29382,12 +29412,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
+                    Store (ToInteger (Arg0), TT_0)
+                    If (LEqual (TT_0, Buffer (0x10)
                             {
                                 /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
                                 /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
@@ -29395,8 +29425,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Store (ToInteger (Arg2), TT_1)
+                            If (LEqual (TT_1, Zero))
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -29420,7 +29450,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (TT_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -29444,7 +29474,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x06))
+                                    If (LEqual (TT_1, 0x06))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -29626,12 +29656,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
+                    Store (ToInteger (Arg0), TT_0)
+                    If (LEqual (TT_0, Buffer (0x10)
                             {
                                 /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
                                 /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
@@ -29639,8 +29669,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Store (ToInteger (Arg2), TT_1)
+                            If (LEqual (TT_1, Zero))
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -29664,7 +29694,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (TT_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -29688,7 +29718,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x06))
+                                    If (LEqual (TT_1, 0x06))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -29883,12 +29913,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
+                    Store (ToInteger (Arg0), TT_0)
+                    If (LEqual (TT_0, Buffer (0x10)
                             {
                                 /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
                                 /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
@@ -29896,8 +29926,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Store (ToInteger (Arg2), TT_1)
+                            If (LEqual (TT_1, Zero))
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -29921,7 +29951,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (TT_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -29945,7 +29975,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x06))
+                                    If (LEqual (TT_1, 0x06))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -30127,12 +30157,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
+                    Store (ToInteger (Arg0), TT_0)
+                    If (LEqual (TT_0, Buffer (0x10)
                             {
                                 /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
                                 /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
@@ -30140,8 +30170,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Store (ToInteger (Arg2), TT_1)
+                            If (LEqual (TT_1, Zero))
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -30165,7 +30195,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (TT_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -30189,7 +30219,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x06))
+                                    If (LEqual (TT_1, 0x06))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -30383,12 +30413,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
+                    Store (ToInteger (Arg0), TT_0)
+                    If (LEqual (TT_0, Buffer (0x10)
                             {
                                 /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
                                 /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
@@ -30396,8 +30426,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Store (ToInteger (Arg2), TT_1)
+                            If (LEqual (TT_1, Zero))
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -30421,7 +30451,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (TT_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -30445,7 +30475,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x06))
+                                    If (LEqual (TT_1, 0x06))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -30627,12 +30657,12 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (TT_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
+                    Store (ToInteger (Arg0), TT_0)
+                    If (LEqual (TT_0, Buffer (0x10)
                             {
                                 /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
                                 /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
@@ -30640,8 +30670,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Store (ToInteger (Arg2), TT_1)
+                            If (LEqual (TT_1, Zero))
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -30665,7 +30695,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (TT_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -30689,7 +30719,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "INTEL ", "HSW-FFRD", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x06))
+                                    If (LEqual (TT_1, 0x06))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
